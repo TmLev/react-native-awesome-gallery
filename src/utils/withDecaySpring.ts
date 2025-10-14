@@ -6,10 +6,10 @@ import type {
 
 const MIN_VELOCITY = 80;
 
-export function withDecaySpring(
+const withDecaySpring = (
   userConfig: WithDecayConfig & WithSpringConfig & { clamp: [number, number] },
   callback?: (finished?: boolean) => void
-) {
+) => {
   'worklet';
 
   return defineAnimation(0, () => {
@@ -152,4 +152,6 @@ export function withDecaySpring(
       callback,
     };
   });
-}
+};
+
+export { withDecaySpring };
